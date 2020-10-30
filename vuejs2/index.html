@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>よしぴーVue.js</title>
+    <link rel="stylesheet" href="vuejs2/styles.css">
+</head>
+<body>
+    <script src="vue.js"></script>
+
+    <div id='app'>
+      <p v-once>
+      {{message}}
+      </p>
+
+      <input type="text" v-model="message2">
+      <h1>{{message2}}</h1>
+
+      <p>{{counter}}</p>
+      <button @click="counter += 1">+1</button>
+      <p>{{otherCounter}}</p>
+      <button @click="otherCounter += 1">別の＋１</button>
+      <p>{{lessThanThreeComputed}}</p>
+      <p>{{lessThanThreeMethod()}}</p>
+
+      <div v-html="html"></div>
+
+　　　　<a :[attribute]="url">GOOGLE</a>
+
+      <a v-bind:href="url">Google</a>
+
+      <a v-bind="{href: urlTwitter, id: number}">Twitter</a>
+      <a v-bind="twitterObject">Twitter2</a>
+     
+      <p>現在{{number}}回クリックされているよ(v-on:click)</p>
+      <button v-on:click="number += 1">カウントアップ1</button>  
+      <button v-on:click="countUp(3)">カウントアップ2</button>
+      <!-- 3の倍数でカウント -->
+      <button @click="countUp">カウントアップ3</button>
+         <!-- v-onでも@でもいける                       -->
+      
+      <p v-on:mousemove="changeMousePosition(5, $event)">マウスを載せてください
+          <span v-on:mousemove.stop>反応させないでください</span>
+                                <!-- ここでマウスを動かして反応しない -->
+      </p>
+      <a v-on:click.prevent.stop="noEvent" href="https://google.com">世界のGoogle</a>
+      <p>X:{{x}},Y:{{y}}</p>
+      <input type="text" v-on:keyup.space.enter="myAlert">
+                               <!-- spaceやenterなどを押すとアラートが出る -->
+
+    <p>{{counter}}</p>
+    <button @click="counter += 1">+1watch</button>
+    <p>
+    {{lessThanThree}}
+    </p>
+
+    <h1 :class="classObject">
+        Helllllooo
+        </h1>
+        <button @click="isActive = !isActive">
+        切り替えですよ
+        </button>
+
+    <p>{{sayHi()}}</p>
+      <!-- <button v-on:click="reverseMessage">
+      メッセージ反転
+      </button> -->
+    </div> 
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js">
+    </script>
+    <script src="js/main.js"></script>
+</body>
+</html>
